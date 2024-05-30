@@ -1,20 +1,16 @@
 <p align="center">
-  <a href="https://layerzero.network">
-    <img alt="LayerZero" style="width: 400px" src="https://docs.layerzero.network/img/LayerZero_Logo_White.svg"/>
+  <a href="https://www.frogwifcat.com/">
+    <img alt="FROGWIFCAT" style="width: 200px" src="https://pbs.twimg.com/profile_images/1781255217277018112/08IKgGV1_400x400.jpg"/>
   </a>
 </p>
 
 <p align="center">
-  <a href="https://layerzero.network" style="color: #a77dff">Homepage</a> | <a href="https://docs.layerzero.network/" style="color: #a77dff">Docs</a> | <a href="https://layerzero.network/developers" style="color: #a77dff">Developers</a>
+  <a href="https://www.frogwifcat.com" style="color: #a77dff">Website</a> | <a href="https://linktr.ee/frogwifcat" style="color: #a77dff">Links</a>
 </p>
 
-<h1 align="center">OFT Example</h1>
+<h1 align="center">FROGWIFCAT (WEF)</h1>
 
-<p align="center">
-  <a href="https://docs.layerzero.network/v2/developers/evm/oft/quickstart" style="color: #a77dff">Quickstart</a> | <a href="https://docs.layerzero.network/contracts/oapp-configuration" style="color: #a77dff">Configuration</a> | <a href="https://docs.layerzero.network/contracts/options" style="color: #a77dff">Message Execution Options</a> | <a href="https://docs.layerzero.network/contracts/endpoint-addresses" style="color: #a77dff">Endpoint Addresses</a>
-</p>
-
-<p align="center">Template project for getting started with LayerZero's <code>OFT</code> contract development.</p>
+<p align="center">WEF token deployed accross multiple blockchains using <code>LayerZero</code> technology.
 
 ## 1) Developing Contracts
 
@@ -106,5 +102,5 @@ By following these steps, you can focus more on creating innovative omnichain so
 <br></br>
 
 <p align="center">
-  Join our community on <a href="https://discord-layerzero.netlify.app/discord" style="color: #a77dff">Discord</a> | Follow us on <a href="https://twitter.com/LayerZero_Labs" style="color: #a77dff">Twitter</a>
+  Join our community on <a href="https://discord.gg/en2jdjuZPN" style="color: #a77dff">Discord</a> | Follow us on <a href="https://x.com/frogwifcat" style="color: #a77dff">Twitter</a>
 </p>
