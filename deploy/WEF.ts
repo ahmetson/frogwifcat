@@ -33,6 +33,13 @@ const deploy: DeployFunction = async (hre) => {
     // }
     const endpointV2Deployment = await hre.deployments.get('EndpointV2')
 
+    console.log("Arguments: [");
+    console.log("\t'frogwifcat',");
+    console.log("\t'WEF',");
+    console.log(`\t${endpointV2Deployment.address},`);
+    console.log(`\t${deployer}`);
+    console.log("]");
+
     const { address } = await deploy(contractName, {
         from: deployer,
         args: [

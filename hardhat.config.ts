@@ -10,8 +10,10 @@ import 'hardhat-contract-sizer'
 import '@nomiclabs/hardhat-ethers'
 import '@layerzerolabs/toolbox-hardhat'
 import { HardhatUserConfig, HttpNetworkAccountsUserConfig } from 'hardhat/types'
+import "@nomicfoundation/hardhat-verify";
 
 import { EndpointId } from '@layerzerolabs/lz-definitions'
+import { ethers } from 'ethers'
 
 // Set your preferred authentication method
 //
@@ -20,7 +22,10 @@ import { EndpointId } from '@layerzerolabs/lz-definitions'
 const MNEMONIC = process.env.MNEMONIC
 
 // If you prefer to be authenticated using a private key, set a PRIVATE_KEY environment variable
-const PRIVATE_KEY = process.env.PRIVATE_KEY
+const PRIVATE_KEY = process.env.PRIVATE_KEY;
+const BASESCAN_KEY = process.env.BASESCAN_KEY;
+const ETHERSCAN_KEY = process.env.ETHERSCAN_KEY;
+const LINEASCAN_KEY = process.env.LINEASCAN_KEY;
 
 const accounts: HttpNetworkAccountsUserConfig | undefined = MNEMONIC
     ? { mnemonic: MNEMONIC }
@@ -34,7 +39,7 @@ if (accounts == null) {
     )
 }
 
-const config: HardhatUserConfig = {
+const config = {
     solidity: {
         compilers: [
             {
@@ -54,22 +59,68 @@ const config: HardhatUserConfig = {
             url: process.env.RPC_URL_SEPOLIA || 'https://rpc.sepolia.org/',
             accounts,
         },
+        linea_testnet: {
+            eid: EndpointId.LINEASEP_V2_TESTNET,
+            url: process.env.RPC_URL_LINEA_SEPOLIA || 'https://59141.rpc.thirdweb.com',
+            accounts,
+        },
+        base_testnet: {
+            eid: EndpointId.BASESEP_V2_TESTNET,
+            url: process.env.RPC_URL_BASE_SEPOLIA || 'https://sepolia.base.org',
+            accounts,
+        },
         fuji: {
-            eid: EndpointId.AVALANCHE_V2_TESTNET,
+            eir: EndpointId.AVALANCHE_V2_TESTNET,
             url: process.env.RPC_URL_FUJI || 'https://rpc.ankr.com/avalanche_fuji',
             accounts,
         },
-        amoy: {
-            eid: EndpointId.AMOY_V2_TESTNET,
-            url: process.env.RPC_URL_AMOY || 'https://polygon-amoy-bor-rpc.publicnode.com',
+        ethereum: {
+            eid: EndpointId.ETHEREUM_V2_MAINNET,
+            url: process.env.RPC_URL_ETHEREUM || 'https://rpc.ankr.com/eth',
             accounts,
         },
+        linea: {
+            eid: EndpointId.ZKCONSENSYS_V2_MAINNET,
+            url: process.env.RPC_URL_LINEA || 'https://1rpc.io/linea',
+            accounts
+        }
     },
     namedAccounts: {
         deployer: {
             default: 0, // wallet address of index[0], of the mnemonic in .env
         },
     },
+    etherscan: {
+        apiKey: {
+            sepolia: ETHERSCAN_KEY,
+            linea_testnet: LINEASCAN_KEY,
+            base_testnet: BASESCAN_KEY,
+            ethereum: ETHERSCAN_KEY,
+            mainnet: ETHERSCAN_KEY,
+            linea: LINEASCAN_KEY
+        },
+        customChains: [
+            {
+              network: "linea_testnet",
+              chainId: 59141,
+              urls: {
+                apiURL: "https://api-sepolia.lineascan.build/api",
+                browserURL: "https://sepolia.lineascan.build/"
+              }
+            },
+            {
+                network: "linea",
+                chainId: 59144,
+                urls: {
+                    apiURL: "https://api.lineascan.build/api",
+                    browserURL: "https://lineascan.build/"
+                }
+            }
+          ]
+    },
+    sourcify: {
+        enabled: false
+    }
 }
 
 export default config

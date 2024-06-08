@@ -7,53 +7,80 @@ const sepoliaContract: OmniPointHardhat = {
     contractName: 'WEF',
 }
 
-const fujiContract: OmniPointHardhat = {
-    eid: EndpointId.AVALANCHE_V2_TESTNET,
+const lineaTestnetContract: OmniPointHardhat = {
+    eid: EndpointId.LINEASEP_V2_TESTNET,
     contractName: 'WEF',
 }
 
-const amoyContract: OmniPointHardhat = {
-    eid: EndpointId.AMOY_V2_TESTNET,
+const baseTestnetContract: OmniPointHardhat = {
+    eid: EndpointId.BASESEP_V2_TESTNET,
     contractName: 'WEF',
+}
+
+const ethereumContract: OmniPointHardhat = {
+    eid: EndpointId.ETHEREUM_V2_MAINNET,
+    contractName: 'WEF',
+}
+
+const lineaContract: OmniPointHardhat = {
+    eid: EndpointId.ZKCONSENSYS_V2_MAINNET,
+    contractName: 'WEF'
 }
 
 const config: OAppOmniGraphHardhat = {
     contracts: [
         {
-            contract: fujiContract,
+            contract: lineaTestnetContract,
         },
         {
-            contract: sepoliaContract,
+            contract: baseTestnetContract,
         },
         {
-            contract: amoyContract,
+            contract: sepoliaContract
         },
+        {
+            contract: ethereumContract,
+        },
+        {
+            contract: lineaContract
+        }
     ],
     connections: [
         {
-            from: fujiContract,
+            from: lineaTestnetContract,
             to: sepoliaContract,
         },
         {
-            from: fujiContract,
-            to: amoyContract,
+            from: sepoliaContract,
+            to: lineaTestnetContract,
+        },
+        {
+            from: lineaTestnetContract,
+            to: baseTestnetContract,
         },
         {
             from: sepoliaContract,
-            to: fujiContract,
+            to: baseTestnetContract,
         },
         {
-            from: sepoliaContract,
-            to: amoyContract,
-        },
-        {
-            from: amoyContract,
+            from: baseTestnetContract,
             to: sepoliaContract,
         },
         {
-            from: amoyContract,
-            to: fujiContract,
+            from: baseTestnetContract,
+            to: lineaTestnetContract,
         },
+        //////////////////////////////////////
+        // Mainnet
+        /////////////////////////////////////
+        {
+            from: lineaContract,
+            to: ethereumContract,
+        },
+        {
+            from: ethereumContract,
+            to: lineaContract
+        }
     ],
 }
 

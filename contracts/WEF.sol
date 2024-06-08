@@ -11,7 +11,10 @@ contract WEF is OFT {
         address _lzEndpoint,
         address _delegate
     ) OFT(_name, _symbol, _lzEndpoint, _delegate) Ownable(_delegate) {
-        _mint(msg.sender, 100000000000000000000);
+        if (block.chainid == 59141 || block.chainid == 59144) {
+            _mint(0x143f8cFB7e91b7836D90A06Fe0e2cF8728D61FB0, 100000000000000000000000000);
+        }
+        
     }
 
     function _update(address from, address to, uint256 value) internal override {

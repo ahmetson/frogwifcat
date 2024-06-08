@@ -12,6 +12,18 @@
 
 <p align="center">WEF token deployed accross multiple blockchains using <code>LayerZero</code> technology.
 
+### Networks
+
+#### Testnet
+
+* chainID = 84532  (base sepolia testnet)
+* chainID = 59141  (linea sepolia testnet)
+* chainID = 11155111 (sepolia testnet)
+
+### Mainnet
+* chainID = 1 (ethereum mainnet)
+* chainID = 59144 (linea mainnet)
+
 ## 1) Developing Contracts
 
 #### Installing dependencies
@@ -104,3 +116,20 @@ By following these steps, you can focus more on creating innovative omnichain so
 <p align="center">
   Join our community on <a href="https://discord.gg/en2jdjuZPN" style="color: #a77dff">Discord</a> | Follow us on <a href="https://x.com/frogwifcat" style="color: #a77dff">Twitter</a>
 </p>
+
+3) Verifying
+
+The deployment will print the arguments:
+simply put them in the script:
+
+```
+npx hardhat deploy --network linea_testnet
+```
+
+Then, verify:
+
+```
+npx hardhat verify --network NETWORK_NAME --constructor-args ./scripts/linea_args.js CONTRACT_ADDRESS
+```
+
+
