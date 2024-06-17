@@ -1,0 +1,12 @@
+{
+    "name": "frogwifcat",
+    "symbol": "WEF",
+    "description": "JUST A FROG WIF A CAT",
+    "image": "https://raw.githubusercontent.com/ahmetson/frogwifcat/main/assets/logo.png",
+    "attributes": [
+      {
+        "trait_type": "Website",
+        "value": "https://frogwifcat.com/"
+      }
+    ]
+  }
